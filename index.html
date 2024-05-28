@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+    <style>
+        dialog::backdrop {
+            background: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body class="w-full m-w-full h-full">
+
+    <main class="w-full max-w-full absolute min-h-screen h-full flex flex-col items-center justify-center">
+        <div class="w-full p-3 flex justify-center ">
+            <div
+                class="w-full max-w-full h-48 relative flex items-center justify-center flex-col sm:flex-row flex-wrap max-w-sm sm:max-w-lg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 px-1">
+                <div class="w-full sm:w-1/2 max-w-[1/2] flex flex-col w-1/2 justify-center m-0 p-0">
+                    <img class="flex rigth-0 w-40 h-40 rounded-full shadow-lg absolute mb-48 mr-10 sm:mr-0"
+                        src="img/user.png" alt="User image" />
+                    <h5 class="mb-1 p-0 m-0 text-xl font-medium text-gray-900 dark:text-white text-center mt-10">Victor
+                        Rosales
+                        Jaimes</h5>
+                    <span class="text-sm text-gray-500 dark:text-gray-400 text-center">Web developer</span>
+                </div>
+                <div class="static sm:w-1/2 max-w-[1/2] flex p-4 justify-center sm:items-center">
+                    <a href="https://www.linkedin.com/in/rosalesjaimesv/" target="_blank" class="w-10 h-10 p-2 flex items-center">
+                        <img src="img/linkedin.png" alt="" class="">
+                    </a>
+                    <a href="https://github.com/vrosalesjaimes" target="_blank" class="w-10 h-10 p-2 flex items-center">
+                        <img src="img/github.png" alt="">
+                    </a>
+                    <a href="mailto:rosalesjaimesv@gmailcom" target="_blank" class="w-10 h-10 p-2 flex items-center">
+                        <img src="img/gmail.png" alt="">
+                    </a>
+                </div>
+                <button
+                    class="btn absolute bottom-[-1em] right-[-1em] border inline-block bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-8 rounded"
+                    onclick="modal.showModal()"> CV </button>
+            </div>
+        </div>
+        <dialog id="modal" class="modal w-full max-w-sm sm:max-w-lg rounded-lg shadow-lg p-6 bg-white dark:bg-gray-800">
+            <div class="bg-white rounded-lg dark:bg-gray-800 px-6 py-4 w-full">
+                <form method="dialog">
+                    <button class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3 text-white">✕</button>
+                </form>
+                <div class="w-full flex flex-col justify-center items-center">
+                    <h3 class="font-bold text-2xl text-gray-900 dark:text-white py-3">Curriculum Vitae</h3>
+                    <iframe src="resources/VictorRosalesJaimes_CV.pdf"
+                        class="w-full h-full min-h-[45vh] border-none overscroll-x-none"></iframe>
+                    <a href="resources/VictorRosalesJaimes_CV.pdf" download="VictorRosalesJaimes_CV.pdf"
+                        class="mt-4 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Descargar PDF
+                    </a>
+                </div>
+            </div>
+        </dialog>
+    </main>
+
+
+</body>
+
+<script>
+    const modal = document.getElementById('modal');
+
+    modal.addEventListener('click', (event) => {
+        const rect = modal.getBoundingClientRect();
+        if (
+            event.clientX < rect.left ||
+            event.clientX > rect.right ||
+            event.clientY < rect.top ||
+            event.clientY > rect.bottom
+        ) {
+            modal.close();
+        }
+    });
+</script>
+
+</html>
